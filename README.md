@@ -147,6 +147,29 @@ npm run build      # Compile TypeScript
 npm run serve      # Run compiled JS
 ```
 
+### Deploy to Vercel
+
+This API is ready to deploy on Vercel. You can deploy using:
+
+#### Option 1: Vercel CLI
+```bash
+npm install -g vercel
+vercel
+```
+
+#### Option 2: Vercel Dashboard
+1. Push your code to GitHub
+2. Import project in [Vercel Dashboard](https://vercel.com/new)
+3. Vercel will automatically detect the configuration
+
+#### Option 3: Deploy Button
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=your-repo-url)
+
+The project includes:
+- `vercel.json` - Vercel configuration with routing
+- `api/index.ts` - Serverless function entry point
+- Automatic builds on push
+
 ### Scripts
 
 - `npm run dev` - Start development server with hot reload
