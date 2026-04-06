@@ -18,6 +18,21 @@ export function createApp() {
   const service = new ApplicationService(repository)
   const handlers = new ApplicationHandlers(service)
 
+  app.get('/', (c) => {
+    return c.json({
+      message: 'Loan Applications API',
+      version: '1.0.0',
+      endpoints: {
+        documentation: '/swagger',
+        openapi: '/doc',
+        applications: {
+          create: 'POST /applications',
+          get: 'GET /applications/:id',
+        },
+      },
+    })
+  })
+
   app.openapi(postApplicationRoute, handlers.createApplication)
   app.openapi(getApplicationRoute, handlers.getApplicationById)
 
