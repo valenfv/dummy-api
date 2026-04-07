@@ -1,36 +1,41 @@
 {
   "name": "dummy-api",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "start": "tsx src/index.ts",
-    "build": "tsc",
-    "serve": "node dist/index.js",
+    "dev": "nest start --watch",
+    "start": "nest start",
+    "build": "rm -rf dist tsconfig.tsbuildinfo && nest build",
+    "start:prod": "node dist/main",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@hono/node-server": "^1.19.12",
-    "@hono/swagger-ui": "^0.6.1",
-    "@hono/zod-openapi": "^1.2.4",
-    "hono": "^4.12.11",
+    "@nestjs/common": "^11.1.18",
+    "@nestjs/core": "^11.1.18",
+    "@nestjs/platform-express": "^11.1.18",
+    "@nestjs/swagger": "^11.2.6",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.4",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@nestjs/cli": "^11.0.17",
+    "@nestjs/testing": "^11.1.18",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.5.2",
-    "@vitest/coverage-v8": "^2.1.8",
-    "@vitest/ui": "^2.1.8",
-    "tsx": "^4.21.0",
-    "typescript": "^6.0.2",
-    "vitest": "^2.1.8"
+    "@types/supertest": "^7.2.0",
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.9",
+    "typescript": "^6.0.2"
   }
 }
